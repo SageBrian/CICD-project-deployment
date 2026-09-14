@@ -27,5 +27,5 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Build Docker image
-        run: docker build -t devops-api:${{ github.sha }} ./app
+      - name: Build Docker images
+        run: docker compose build
