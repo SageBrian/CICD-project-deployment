@@ -56,10 +56,14 @@ jobs:
 
       - name: Tag Docker image
         run: |
+          IMAGE_NAME=$(echo "${{ github.repository }}" | tr '[:upper:]' '[:lower:]')
+
           docker tag cicd-project-backend:latest \
-            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
+            ${{ env.REGISTRY }}/$IMAGE_NAME:${{ github.sha }}
 
       - name: Push Docker image
         run: |
+          IMAGE_NAME=$(echo "${{ github.repository }}" | tr '[:upper:]' '[:lower:]')
+
           docker push \
-            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
+            ${{ env.REGISTRY }}/$IMAGE_NAME:${{ github.sha }}
