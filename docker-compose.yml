@@ -2,6 +2,7 @@ services:
   backend:
     build:
       context: ./app
+    image: cicd-project-backend:latest
     container_name: devops-api
     ports:
       - "8000:8000"
