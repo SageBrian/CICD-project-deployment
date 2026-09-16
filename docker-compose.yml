@@ -36,6 +36,8 @@ services:
     build:
       context: ./app
     command: pytest
+    environment:
+      DATABASE_URL: postgresql://devops:devops_password@postgres:5432/tasks
     depends_on:
       postgres:
         condition: service_healthy
